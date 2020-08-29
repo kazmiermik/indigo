@@ -85,7 +85,7 @@ pagination:
 
 # if you don't need "about" or "blog", comment them out below
 about: true
-blog: true
+blog: false
 
 # do you want to show the "read time" of the posts?
 read-time: true
@@ -139,3 +139,33 @@ prose:
   siteurl: 'http://kazmiermik.github.io/'
   relativeLinks: 'http://kazmiermik.github.io/links.jsonp'
   media: '/assets/images'
+
+defaults:
+    -
+     scope:
+         path: ""
+     values:
+         lang: en
+         base-url: "/"
+    -
+     scope:
+         path: pl
+     values:
+         lang: pl
+         base-url: "/pl/"
+
+t:
+    home:
+        en: "Home"
+        pl: "Strona główna"
+    about:
+        en: "About"
+        pl: "O autorze"
+
+languages:
+    en:
+        label: EN
+        icon: 🇬🇧
+    pl:
+        label: PL
+        icon: 🇵🇱

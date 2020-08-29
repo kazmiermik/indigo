@@ -1,15 +1,15 @@
-<nav class="{% if page.title == "Home" %}nav-home{% else %}nav{% endif %}">
+<nav class="nav">
     <ul class="list">
-        {% if page.title != "Home" %}
+        {% if page.title != {{ site.t['home'][page.lang] }} %}
             <li class="item">
-                <a class="link" href="{{ site.url }}/">Strona główna</a>
+                <a class="link" href="{{ site.url }}{{ page.base-url }}">{{ site.t['home'][page.lang] }}</a>
             </li>
         {% endif %}
 
         {% if site.blog == true %}
             {% if page.title != "Blog" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/blog">Blog</a>
+                    <a class="link" href="{{ site.url }}{{ page.base-url }}/blog">Blog</a>
                 </li>
             {% endif %}
         {% endif %}
@@ -17,15 +17,15 @@
         {% if site.projects == true %}
             {% if page.title != "Projects" %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/projects">Projects</a>
+                    <a class="link" href="{{ site.url }}{{ page.base-url }}/projects">Projects</a>
                 </li>
             {% endif %}
         {% endif %}
 
         {% if site.about == true %}
-            {% if page.title != "O autorze" %}
+            {% if page.title != {{ site.t['about'][page.lang] }} %}
                 <li class="item">
-                    <a class="link" href="{{ site.url }}/about">O autorze</a>
+                    <a class="link" href="{{ site.url }}{{ page.base-url }}/about">{{ site.t['about'][page.lang] }}</a>
                 </li>
             {% endif %}
         {% endif %}
@@ -34,6 +34,23 @@
             <li class="item">
                 <a class="link" href="{% if site.resume-external %}{{ site.resume-url }}{% else %}{{ site.url }}/{{ site.resume-url }}{% endif %}">Résumé</a>
             </li>
+        {% endif %}
+
+        {% if page.layout != 'index' %}
+            {% assign posts=site.posts | where:"ref", page.ref | sort: 'lang' %}
+        {% if posts.size == 0 %}
+            {% assign posts=site.pages | where:"ref", page.ref | sort: 'lang' %}
+        {% endif %}
+        {% if posts.size > 1 %}
+            <li class="item">
+                <div class="headerDivider"></div>
+            </li>
+            {% for post in posts %}
+            <li class="lang-item">
+                <a class="link" href="{{ site.url }}{{ post.url }}"><img src="/assets/images/lang_icon_{{ post.lang }}.svg" class="icon"> {{ site.languages[post.lang].label }}</a>
+            </li>
+            {% endfor %}
+        {% endif %}
         {% endif %}
     </ul>
 </nav>

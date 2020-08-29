@@ -1,5 +1,8 @@
-.nav,
-.nav-home
+.nav
+    position: absolute
+    right: 0
+    top: 0
+    margin-top: 20px
     > .list
         list-style: none
         margin: 0
@@ -7,40 +10,75 @@
 
         > .item
             display: inline-block
+            vertical-align: middle
+
+        > .lang-item
+            display: inline-block
+            vertical-align: middle
 
         > .item > .link
-            display: inline-block
             font-weight: 300
-            font-size: 1.4rem
+            font-size: 2rem
             padding: 20px 10px
             text-decoration: none
 
-.nav
-    position: absolute
-    right: 0
-    top: 0
-
-    > .list
-        padding: 0 13px 0
-
-        > .item > .link
+        > .lang-item > .link
+            font-weight: 300
             font-size: 2rem
-            padding: 20px 10px
+            padding: 20px 5px
+            text-decoration: none
 
-.nav-home
-    margin-top: 40px
-    text-align: center
+        > .item > .headerDivider
+            border-left: 1.5px solid #4b0082
+            height: 15px
+            padding-left: 10px
 
-    > .list
-        padding: 0
+        > .lang-item > .link > .icon
+            height: 1em
+            width: 1em
+            vertical-align: middle
+/* .nav
+/*     position: absolute
+/*     right: 0
+/*     top: 0
+/*     margin-top: 20px
 
-        > .item > .link
-            font-size: 2rem
-            padding: 7px 15px
-            margin: 0
-            border-radius: 4%
-            transition: all .4s ease-in-out
-            width: 70px
+/*     > .list
+/*         padding: 0 13px 0
 
-            &:hover
-                color: $alpha
+/*         > .item > .link
+/*             font-size: 2rem
+/*             padding: 20px 10px
+
+/*         > .lang-item > .link
+/*             font-size: 2rem
+/*             padding: 20px 5px
+
+/* .nav-home
+/*     margin-top: 40px
+/*     text-align: center
+
+/*     > .list
+/*         padding: 0
+
+/*         > .item > .link
+/*             font-size: 2rem
+/*             padding: 7px 15px
+/*             margin: 0
+/*             border-radius: 4%
+/*             transition: all .4s ease-in-out
+/*             width: 70px
+
+/*             &:hover
+/*                 color: $alpha
+
+/*         > .lang-item > .link
+/*             font-size: 2rem
+/*             padding: 7px 5px
+/*             margin: 0
+/*             border-radius: 4%
+/*             transition: all .4s ease-in-out
+/*             width: 70px
+
+/*             &:hover
+/*                 color: $alpha
